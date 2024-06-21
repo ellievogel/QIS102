@@ -14,7 +14,7 @@ Plot the expected distance of a uniform random walk of N steps on a unit lattice
 # Helper function to calculate the distance given the formula
 def distance(N, d):
     first_term = np.sqrt((2 * N) / d)
-    second_term_numerator = gamma(d + 1) / 2
+    second_term_numerator = gamma((d + 1) / 2)
     second_term_denominator = gamma(d / 2)
     return first_term * ((second_term_numerator / second_term_denominator) ** 2)
 

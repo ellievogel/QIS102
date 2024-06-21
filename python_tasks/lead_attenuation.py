@@ -25,7 +25,7 @@ def main():
     file_path = Path(__file__).parent / file_name
 
     # Produce points for scatter plot from .csv file
-    samples = np.genfromtxt(file_path, delimiter=",", skip_header=1)
+    samples = np.genfromtxt(file_path, delimiter=",")
     energy, attenuation_level = samples.T
     min_energy, max_energy = np.min(energy), np.max(energy)
 

@@ -28,6 +28,8 @@ def main():
     # Gamma represents Euler's constant
     gamma = quad(integrand, 0, 1, full_output=True, limit=1000)[0]
 
+    print(f"Euler's constant is: {gamma}")
+
     # Plot line graph of y = gamma + ln(x)
     plt.figure()
     x_coordinates_line_graph = np.linspace(1, 50, 1000)

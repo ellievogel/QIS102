@@ -4,7 +4,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
-from mpmath import fdiv, floor, log, mpf, power
+from mpmath import mpf, power
 
 """
 Demonstrate the Law of Anomalous Numbers by calculating the probability of each digit appearing as the most significant digit in 100,000 very large random integers
@@ -24,18 +24,8 @@ def raise_and_most_significant_digit(number):
 
 
 def main():
-    # Initialize array to hold the counts of each digit
-    counts = [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-    ]
+    # Initialize array to hold the counts of each digit using np.zeros
+    counts = np.zeros(9)
 
     # Initialize large numbers
     number_set = np.random.randint(1, 1000001, size=100000)
@@ -46,15 +36,17 @@ def main():
         # Increment proper index in counts by 1
         counts[leading_digit - 1] += 1
 
-    # Plot data, setting the title and axis labels of the graph
+    # Convert counts to probabilities
+    probabilities = counts / len(number_set)
 
+    # Plot data, setting the title and axis labels of the graph
     plt.figure(Path(__file__).name)
-    plt.bar(np.arange(1, 10), counts)
+    plt.bar(np.arange(1, 10), probabilities)
 
     plt.tick_params("x")
-    plt.title("Digit Frequencies")
+    plt.title("Digit Probabilities According to Benford's Law")
     plt.xlabel("Digit")
-    plt.ylabel("Count")
+    plt.ylabel("Probability")
     plt.show()
 
 
