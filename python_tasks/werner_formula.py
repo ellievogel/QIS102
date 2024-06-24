@@ -11,12 +11,12 @@ Uses the domain -3*pi <= x <= 3*pi subdivided into 100 intervals
 
 # Helper function for f1
 def f1(x):
-    return 0.8 * np.sin(x)
+    return np.sin(0.8 * x)
 
 
 # Helper function for f2
 def f2(x):
-    return 0.5 * np.sin(x)
+    return np.sin(0.5 * x)
 
 
 # Helper function for f3
@@ -26,7 +26,7 @@ def f3(x):
 
 # Werner's formula for sin(a)sin(b) = cos(a - b) - cos(a + b)
 def f4(x):
-    return np.cos(0) - np.cos(2 * x)
+    return (np.cos(0) - np.cos(2 * x)) / 2
 
 
 def main():
