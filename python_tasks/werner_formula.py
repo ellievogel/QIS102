@@ -26,7 +26,9 @@ def f3(x):
 
 # Werner's formula for sin(a)sin(b) = cos(a - b) - cos(a + b)
 def f4(x):
-    return (np.cos(0) - np.cos(2 * x)) / 2
+    a = 0.8 * x
+    b = 0.5 * x
+    return 0.5 * (np.cos(a - b) - np.cos(a + b))
 
 
 def main():
